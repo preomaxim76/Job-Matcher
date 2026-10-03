@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Job-Matcher: {% block title %}{% endblock %}</title>
+        <link rel="icon" type="image/png" href="/static/images/jm_icon_cropped.png?v=1">
+
+        <link rel="stylesheet" href="static/css/styles.css">
+        {% block page_css %}{% endblock %}
+        <script src="script.js"></script>
+    </head>
+    <body>
+        {% if show_nav != False %}
+            <nav>
+
+            </nav>
+        {% endif %}
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <foot>
+
+        </foot>
+    </body>
+</html>

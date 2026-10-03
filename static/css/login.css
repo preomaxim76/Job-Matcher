@@ -1,0 +1,71 @@
+@import url("styles.css");
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&display=swap');
+
+html {
+    background-image: url("/static/images/login_background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+
+}
+
+.login_island {
+    backdrop-filter: blur(8px);
+    margin-top: 10%;
+    border: solid transparent;
+    border-radius: 10%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 2%;
+    padding-left: 2%;
+    text-align: center;
+}
+
+.login_island form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.login_island form input {
+    font-size: 150%;
+    margin-bottom: 10%;
+    font-family: "Orbitron", sans-serif;
+    border: solid transparent;
+    border-radius: 8px
+}
+
+.login_island form input:focus {
+    border: solid black
+}
+
+.login_island form button {
+    font-size: 150%;
+    background-color: rgb(4, 4, 100);
+    border: solid transparent;
+    border-radius: 5vw;
+    color: white;
+}
+
+
+.login_island h1 {
+    font-family: "Edu VIC WA NT Hand", cursive;
+}
+
+.password {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.password a {
+    
+}
