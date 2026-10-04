@@ -18,6 +18,12 @@
             </div>
             <button type="submit">Log In</button>
         </form>
+
+        <p id="sign_in_with">or sign in with </p>
+
+        <form action="/login" method="POST"> 
+            <button name="action" value="google-signin" class="diff_signin" type="submit">Google</button>
+        </form>
     </div>
 
 {% endblock %}
