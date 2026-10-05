@@ -1,0 +1,22 @@
+body {
+    position: relative;
+}
+
+.flash {
+    color: white;
+    border: solid transparent;
+    border-radius: 1vw;
+    text-align: center;
+    font-size: 140%;
+    position: absolute;
+    padding: 1% 1.5% 1% 1.5%;
+    margin-left: 1%
+}
+
+.flash-error {
+    background-color: red;
+}
+
+.flash-success {
+    background-color: green;
+}

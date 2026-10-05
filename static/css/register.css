@@ -3,12 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&display=swap');
 
 html {
-    background-image: url("/static/images/login_background.jpg");
+    background-image: url("/static/images/blurry_blue_wallpaper.jpg");
     background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin: 0;
+    background-position: center center;
 }
 
 main {
@@ -16,25 +15,26 @@ main {
     justify-content: center;
 }
 
-.login_island {
-    backdrop-filter: blur(8px);
-    margin-top: 10%;
-    border: solid transparent;
+.register_island {
+    background-color: rgba(0, 0, 0, 0.372);
+    margin-top: 8%;
+    border: solid rgba(0, 0, 0);
     border-radius: 10%;
     padding-top: 1%;
     padding-bottom: 1%;
-    padding-right: 2%;
-    padding-left: 2%;
+    padding-right: 5%;
+    padding-left: 5%;
+    color: white;
     text-align: center;
 }
 
-.login_island form {
+.register_island form {
     display: flex;
     flex-direction: column;
 
 }
 
-.login_island form input {
+.register_island form input {
     font-size: 150%;
     margin-bottom: 8%;
     font-family: "Orbitron", sans-serif;
@@ -43,11 +43,11 @@ main {
     padding: 1% 3% 1% 3%
 }
 
-.login_island form input:focus {
+.register_island form input:focus {
     border: solid black
 }
 
-.login_island form button {
+.register_island form button {
     font-size: 150%;
     background-color: rgb(0, 0, 0, 0.8);
     border: solid transparent;
@@ -57,57 +57,31 @@ main {
 }
 
 
-.login_island form button:hover {
+.register_island form button:hover {
     transform: scale(1.01);
     background-color: black
 }
 
+.sect {
+    text-align: left
+}
 
-.login_island h1 {
+button {
+    margin-top: 3%;
+    margin-bottom: 4%;
+}
+
+h1 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 160%
+}
+
+#register_h1 {
     font-family: "Edu VIC WA NT Hand", cursive;
 }
 
-.password {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-bottom: 5%
-}
-
-.password a {
-    margin-top: -5%;
-    color: white;
-    font-size: 110%;
-    text-decoration-color: transparent
-}
-
-.password a:hover {
-    text-decoration-color: white
-}
-
-.another_signin {
-    display: inline-block
-}
-
-#sign_in_with {
-    color: white;
-    font-size: 140%
-}
-
-.diff_signin {
-    background-color: gray !important;
-}
-
-.diff_signin:hover {
-    color: black
-}
-
-.register_suggestion {
-    color: white;
-    font-size: 130%
-}
-
-.register_suggestion a {
+a {
+    font-size: 120%;
     color: white;
 }
 

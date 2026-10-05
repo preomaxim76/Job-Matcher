@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="/static/css/register.css">
+{% endblock %}
+
+{% block main %}
+
+    <div class="register_island">
+        <h1 id="register_h1">Register</h1>
+
+        <form action="/register" method="POST">
+            <div class="sect">
+                <h1>1. Create a username</h1>
+                <input type="text" name="username" class="register_input" placeholder="Username" autofocus autocomplete="off" required>
+            </div>
+            <div class="sect">
+                <h1>2. Create a password</h1>
+                <input type="text" name="password" class="register_input" placeholder="Password" autofocus autocomplete="off" required>
+            </div>
+            <div class="sect">
+                <h1>3. Repeat your password</h1>
+                <input type="text" name="password_confirmation" class="register_input" placeholder="Password" autofocus autocomplete="off" required>
+            </div>
+            
+            <button type="submit">Register</button>
+        </form>
+        <a href="/login">Back to Log In page</a>
+    </div>
+
+{% endblock %}

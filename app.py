@@ -3,8 +3,16 @@ from functools import wraps
 from dotenv import load_dotenv
 import os
 from authlib.integrations.flask_client import OAuth
+import sqlite3
+from datetime import datetime
+import bcrypt
 
 load_dotenv()
+
+# Connect database
+def connect_database(db: str):
+    conn = sqlite3.connect(db)
+    return conn
 
 def login_required(function):
     @wraps(function)
@@ -45,9 +53,18 @@ def login():
         if not action:
             username, password = request.form.get("username"), request.form.get("password")
 
-            # TODO: Check user's username and password
+            conn = connect_database("users.db")
+            c = conn.cursor()
 
-            session["user_id"] = ... # TODO: add user_id, got from the SQL database
+            db_password = c.execute("SELECT password FROM users WHERE username = ?", (username, )).fetchone()[0]
+
+            if not bcrypt.checkpw(password.encode("utf-8"), db_password):
+                flash("Incorrect username or password...")
+                conn.close()
+                return redirect("/login")
+            
+
+            session["user_id"] = c.execute("SELECT user_id FROM users WHERE username = ?", (username, )).fetchone()
 
             return redirect("/")
 
@@ -65,3 +82,43 @@ def google_callback():
     
     else:
         pass
+
+@app.route("/register", methods=["POST", "GET"])
+def register():
+    if request.method == "POST":
+        time = datetime.now()
+        username = request.form.get("username")
+        if username.isdigit() or not (2 < len(username) < 18):
+            flash("Please enter a valid username!", "error")
+            return redirect("/register")
+
+        conn = connect_database("users.db")
+        c = conn.cursor()
+        if c.execute("SELECT username FROM users WHERE username = ?", (username, )).fetchall() != []:
+            flash("Username is not available. Please choose a different one.", "error")
+            conn.close()
+            return redirect("/register")
+
+        password = request.form.get("password")
+        if not (3 < len(password) < 19):
+            flash("Your password's length should be in range 4 - 18!", "error")
+            conn.close()
+            return redirect("/register")
+        confirmation = request.form.get("password_confirmation")
+        
+        if password != confirmation:
+            flash("Passwords do not match!", "error")
+            conn.close()
+            return redirect("/register")
+        hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+
+        c.execute("INSERT INTO users (password, created_at, username) VALUES (?, ?, ?)", (hashed_password, time, username))
+        conn.commit()
+        
+        session["user_id"] = c.execute("SELECT user_id FROM users WHERE username = ?", (username, )).fetchone()[0]
+        conn.close()
+
+        return redirect("/")
+
+    else:
+        return render_template("register.html")
