@@ -2,3 +2,4 @@ Flask
 jinja2
 Authlib
 bcrypt
+python-dotenv
