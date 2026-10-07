@@ -21,7 +21,7 @@ def login_required(function):
     @wraps(function)
     def decorated_function(*args, **kwargs):
         if session.get("user_id") is None and session.get("google_id") is None:
-            return redirect("/login")
+            return redirect("/landing_page")
         return function(*args, **kwargs)
     return decorated_function
 
@@ -47,6 +47,10 @@ google = oauth.register(
 @login_required
 def index():
     return render_template("index.html")
+
+@app.route("/landing_page")
+def landing_page():
+    return render_template("landing_page.html", show_nav="False")
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
@@ -99,11 +103,11 @@ def google_callback():
     conn = connect_database("users.db")
     c = conn.cursor()
     user_info = c.execute("SELECT * FROM users WHERE google_id = ?", (user["sub"], )).fetchone()
-    print(user_info)
+
     # User is already registered
     if user_info:
-        #session["user_id"] = user_info[0]["user_id"]
-        pass
+        session["user_id"] = user_info["user_id"]
+        
     # User has to be added
     else:
         c.execute("INSERT INTO users (google_id, created_at, username) VALUES (?, ?, ?)", (user["sub"], time, user["name"]))

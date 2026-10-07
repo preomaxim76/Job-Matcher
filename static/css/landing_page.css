@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&family=Tektur:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Caveat+Brush&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&family=Tektur:wght@400..900&display=swap');
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    margin-left: 4%;
+    font-size: 220%;
+    font-family: "Edu VIC WA NT Hand", cursive;
+}
+
+#header_buttons {
+    width: 20%;
+    display: flex;
+    gap: 12%
+}
+
+#header_buttons button {
+    font-size: 160%;
+    padding: 2% 4% 2% 4%;
+    border: solid rgb(174, 174, 174) 2px;
+    border-radius: .5vw;
+}
+
+#header_buttons button:hover {
+    transform: scale(1.05)
+}
+
+#white_button {
+    background-color: white;
+}
+
+
+#blue_button {
+    background-color: #4F63F7;
+    border: solid transparent !important;
+    color: white
+}
+
+#main_body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1.5%
+}
+
+#landing_image {
+    margin-right: 10%;
+}
+
+#left_body {
+    margin-left: 4%;
+    width: 33%
+}
+
+#left_body_h2 {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    font-family: Georgia, 'Times New Roman', Times, serif, Courier, monospace;
+    border: solid transparent;
+    border-radius: 2vw;
+    width: 40%;
+    font-size: 60%;
+    margin-bottom: -5%;
+    margin-top: 5%;
+    padding-right: .5%;
+    padding-left: .5%;
+    color: #4F63F7;
+    background-color: rgba(113, 157, 244, 0.357);
+}
+
+#left_body h1 {
+    font-size: 400%;
+    font-family: "Orbitron", sans-serif;
+}
+
+#left_body p {
+    color: rgba(0, 0, 0, 0.591);
+    width: 60%;
+    line-height: 1.4;
+    margin-top: -5%;
+    font-size: 120%
+}
+
+#left_body_buttons {
+    display: flex;
+    gap: 3%
+}
+
+#left_body_buttons button {
+    font-size: 160%;
+    border: solid transparent;
+    border-radius: 2vw;
+    padding: 2% 5% 2% 5%;
+}
+
+#left_body_buttons #blue_button {
+    background-color: #4F63F7;
+}
+
+#left_body_buttons #white_button {
+    border: 2px solid rgba(128, 128, 128, 0.491)
+}
+
+#left_body_buttons #blue_button:hover {
+    color: black
+}
+
+#left_body_buttons #white_button:hover {
+    color: white;
+    background-color: gray
+}

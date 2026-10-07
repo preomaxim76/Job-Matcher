@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Landing Page
+{% endblock %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="/static/css/landing_page.css">
+{% endblock %}
+
+{% block main %}
+
+    <header>
+        <h1>Job-Matcher</h1>
+
+        <div id="header_buttons">
+            <button id="white_button">Log In</button>
+            <button id="blue_button">Register</button>
+        </div>
+    </header>
+
+    <hr>
+        
+    <div id="main_body">
+        <div id="left_body">
+            <div id="left_body_h2">
+                <img width="7%" alt="Intelligence spark" src="/static/images/intelligence_spark.png"><h2>Smartest job search. Best matches.</h2>
+            </div>
+            <h1>Find the right job for you.</h1>
+            <p>Job-Matcher uses AI to understand your skills, interests and goals. It matches you with the opportunities that actually fit.</p>
+
+            <div id="left_body_buttons">
+                <button id="blue_button">Get Started</button>
+                <button id="white_button">Learn More</button>
+            </div>
+
+            <h3>Join thousands finding their next opportunity!</h3>
+        </div>
+
+        <div id="landing_image">
+            <img alt="Man with a laptop, searching for job." src="/static/images/job_matcher_man.png">
+        </div>
+    </div>
+
+    <div>
+
+    </div>
+
+    <footer>
+
+    </footer>
+
+{% endblock %}
