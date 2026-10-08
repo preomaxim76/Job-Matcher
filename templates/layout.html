@@ -9,9 +9,10 @@
 
         <link rel="stylesheet" href="static/css/styles.css">
         {% block page_css %}{% endblock %}
-        <script src="script.js"></script>
+        <script src="/static/script.js" defer></script>
     </head>
     <body>
+        {% block header %}{% endblock %}
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}

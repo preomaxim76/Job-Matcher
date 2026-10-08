@@ -6,17 +6,38 @@
 
 {% block page_css %}<link rel="stylesheet" href="/static/css/login.css">{% endblock %}
 
+{% block header %}
+    <header>
+        <div id="heading">
+            <img src="/static/images/blue_man_house.png">
+            <h1>Job-Matcher</h1>
+        </div>
+        <div id="register_suggestion">
+            <h4>Don't have an account?</h4>
+            <a href="/register">Sign Up</a>
+        </div>
+    </header>
+{% endblock %}
+
 {% block main %}
+    <div id="slogan_and_image">
+        {% include "slogan.html" %}
+        <img width="110%" alt="Man with a laptop, searching for job." src="/static/images/job_matcher_man_diff_background.png">
+    </div>
 
     <div class="login_island">
-        <h1>Log In</h1>
+        <h1>Welcome back</h1>
+        <p>Log in to your Job-Matcher account</p>
+
         <form action="/login" method="POST">
-            <input type="text" name="username" class="login_input" placeholder="Username" autofocus autocomplete="off" required>
+            <h2>Username</h2>
+            <input type="text" name="username" class="login_input" placeholder="Your username" autofocus autocomplete="off" required>
+            <h2>Password</h2>
             <div class="password">
-                <input type="password" name="password" class="login_input" placeholder="Password" autofocus autocomplete="off" required>
+                <input type="password" name="password" class="login_input" placeholder="Your password" autofocus autocomplete="off" required>
                 <a href="#">Forgot Password?</a>
             </div>
-            <button type="submit">Log In</button>
+            <button type="submit">Log In<span><img width="70%" src="/static/images/small_white_arrow.png"></span></button>
         </form>
 
         <p id="sign_in_with">or sign in with </p>
@@ -26,6 +47,6 @@
         </form>
         <p class="register_suggestion">Don't have an account? <a href="/register">Register</a></p>
     </div>
-
+        
 {% endblock %}
 

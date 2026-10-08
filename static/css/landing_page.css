@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Anta&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&family=Tektur:wght@400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anta&family=Caveat+Brush&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&family=Tektur:wght@400..900&display=swap');
-
 header {
     display: flex;
     align-items: center;
@@ -8,22 +5,36 @@ header {
 }
 
 header h1 {
-    margin-left: 4%;
     font-size: 220%;
     font-family: "Edu VIC WA NT Hand", cursive;
 }
 
-#header_buttons {
-    width: 20%;
+#heading {
     display: flex;
-    gap: 12%
+    align-items: center;
+    width: 45%;
+    margin-left: 4%;
+    gap: 2%
+}
+
+#header_buttons {
+    width: 18%;
+    display: flex;
+    gap: 15%;
+    align-items: center;
 }
 
 #header_buttons button {
     font-size: 160%;
-    padding: 2% 4% 2% 4%;
+    padding: .45vw;
     border: solid rgb(174, 174, 174) 2px;
     border-radius: .5vw;
+    width: 120%;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+#header_buttons form {
+    display: inline-block
 }
 
 #header_buttons button:hover {
@@ -96,11 +107,17 @@ header h1 {
     font-size: 160%;
     border: solid transparent;
     border-radius: 2vw;
-    padding: 2% 5% 2% 5%;
+    padding: 1% 4% 1% 4%;
 }
 
 #left_body_buttons #blue_button {
     background-color: #4F63F7;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    width: 38%;
+    border: solid transparent;
+    border-radius: 2vw;
 }
 
 #left_body_buttons #white_button {
@@ -114,4 +131,18 @@ header h1 {
 #left_body_buttons #white_button:hover {
     color: white;
     background-color: gray
+}
+
+#right_in_h1 {
+    color: #4F63F7;
+}
+
+#join_suggestion {
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+    font-size: 115%;
+    color: rgba(0, 0, 0, 0.591);
+    gap: 1.5%;
+    width: 50%
 }

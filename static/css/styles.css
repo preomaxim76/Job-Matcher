@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&family=Tektur:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Caveat+Brush&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&family=Tektur:wght@400..900&display=swap');
+
 html {
     margin: 0;
+}
+
+img {
+    user-select: none;
 }
 
 body {
