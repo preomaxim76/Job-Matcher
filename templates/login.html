@@ -27,7 +27,7 @@
 
     <div class="login_island">
         <h1>Welcome back</h1>
-        <p>Log in to your Job-Matcher account</p>
+        <p id="log_in_p">Log in to your Job-Matcher account</p>
 
         <form action="/login" method="POST">
             <h2>Username</h2>
@@ -37,13 +37,13 @@
                 <input type="password" name="password" class="login_input" placeholder="Your password" autofocus autocomplete="off" required>
                 <a href="#">Forgot Password?</a>
             </div>
-            <button type="submit">Log In<span><img width="70%" src="/static/images/small_white_arrow.png"></span></button>
+            <button id="login_button" type="submit">Log In<span><img width="70%" src="/static/images/small_white_arrow.png"></span></button>
         </form>
 
-        <p id="sign_in_with">or sign in with </p>
+        <p id="or">or</p>
 
         <form action="/login" method="POST"> 
-            <button name="action" value="google-signin" class="diff_signin" type="submit">Google</button>
+            <button name="action" value="google-signin" class="diff_signin" type="submit"><span><img width="30%" src="/static/images/google.png"></span>Continue with Google</button>
         </form>
         <p class="register_suggestion">Don't have an account? <a href="/register">Register</a></p>
     </div>

@@ -67,7 +67,7 @@ def login():
             db_password = c.execute("SELECT password FROM users WHERE username = ?", (username, )).fetchone()
             # If no such user at all
             if not db_password:
-                flash("Incorrect username or password...", "error")
+                flash("Incorrect username or password.", "error")
                 conn.close()
                 return redirect("/login")
 
@@ -76,7 +76,7 @@ def login():
             
             # Checking if passwords match
             if not bcrypt.checkpw(password.encode("utf-8"), db_password):
-                flash("Incorrect username or password...", "error")
+                flash("Incorrect username or password.", "error")
                 conn.close()
                 return redirect("/login")
             

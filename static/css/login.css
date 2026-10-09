@@ -12,8 +12,8 @@ main {
     justify-content: space-between;
     border: solid 1px rgba(202, 202, 202, 0.307);
     border-radius: 1vw;
-    margin-right: 8%;
-    margin-left: 8%;
+    margin-right: 20%;
+    margin-left: 20%;
     background-color: #EEF3FF;
 }
 
@@ -32,18 +32,20 @@ header h1 {
     display: flex;
     align-items: center;
     width: 45%;
-    margin-left: 8%;
+    margin-left: 20%;
     gap: 2%
 }
 
 #register_suggestion {
     display: flex;
     gap: 3%;
-    margin-right: 8%;
+    margin-right: 20%;
     width: 15%;
     align-items: center;
     font-size: 120%;
-    margin-bottom: -2%
+    margin-bottom: -2%;
+    color: rgba(59, 59, 59, 0.851);
+    
 }
 
 #register_suggestion a {
@@ -57,7 +59,7 @@ header h1 {
 
 #slogan_and_image {
     margin-left: 5%;
-    width: 25%
+    width: 40%
 }
 
 #slogan_and_image h1 {
@@ -73,22 +75,115 @@ header h1 {
     color: #4F63F7;
 }
 
-p {
+#slogan_and_image p {
     color: rgba(0, 0, 0, 0.591);
-    width: 70%;
+    width: 80%;
     line-height: 1.4;
     margin-top: 0%;
     font-size: 120%
 }
 
-
 .login_island {
     border: solid 1px rgba(210, 210, 210, 0.307);
     background-color: white;
     border-radius: .3vw;
-    margin-right: 5%
+    margin-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: fit-content;
+    
 }
 
 .login_island h1 {
     font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+#log_in_p {
+    color: rgba(0, 0, 0, 0.591);
+    font-size: 110%;
+    margin-top: -3%;
+    margin-bottom: 7%
+}
+
+.login_island h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    font-size: 110%;
+    margin-bottom: 1%
+}
+
+.div_input {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    font-size: 100%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    border: 1px solid rgba(168, 168, 168, 0.731);
+    border-radius: .3vw;
+    width: 60%;
+    padding-left: 3%;
+    margin-bottom: 3%;
+    min-width: 350px
+}
+
+input:focus {
+    outline: 1px solid #4F63F7;
+}
+
+.password input:not(:placeholder-shown) {
+    letter-spacing: .3vw
+}
+
+.password {
+    display: flex;
+    flex-direction: column
+}
+
+.password a {
+    text-decoration: none;
+    margin-top: -2%
+}
+
+.password a:hover {
+    text-decoration: underline
+}
+
+#login_button {
+    margin-top: 5%;
+    background-color: #4F63F7;
+    color: white;
+    border: solid transparent;
+    border-radius: .3vw
+}
+
+button {
+    display: flex;
+    align-items: center;
+    gap: 1%;
+    justify-content: center;
+    width: 65%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 100%;
+    min-width: 365px;
+}
+
+#or {
+    text-align: center;
+}
+
+.register_suggestion {
+    text-align: center;
+    margin-top: 5%
+}
+
+.diff_signin {
+    background-color: white;
+    border: 2px solid rgb(167, 167, 167);
+    border-radius: .3vw
 }
