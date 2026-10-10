@@ -164,3 +164,7 @@ def register():
 
     else:
         return render_template("register.html")
+
+@app.route("/learn_more")
+def learn_more():
+    return render_template("learn_more.html")

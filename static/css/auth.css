@@ -1,6 +1,7 @@
-@import url("styles.css");
 @import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&display=swap');
+@import url('styles.css');
+
 
 html {
     background-color: white;
@@ -16,6 +17,28 @@ main {
     margin-left: 20%;
     background-color: #EEF3FF;
 }
+
+#another_method_suggestion {
+    display: flex;
+    gap: 3%;
+    margin-right: 20%;
+    width: 15%;
+    align-items: center;
+    font-size: 120%;
+    margin-bottom: -2%;
+    color: rgba(59, 59, 59, 0.851);
+
+}
+
+#another_method_suggestion a {
+    text-decoration: none;
+    color: #1e35e2;
+}
+
+#another_method_suggestion a:hover {
+    text-decoration: underline #4F63F7;
+}
+
 
 header {
     display: flex;
@@ -34,27 +57,6 @@ header h1 {
     width: 45%;
     margin-left: 20%;
     gap: 2%
-}
-
-#register_suggestion {
-    display: flex;
-    gap: 3%;
-    margin-right: 20%;
-    width: 15%;
-    align-items: center;
-    font-size: 120%;
-    margin-bottom: -2%;
-    color: rgba(59, 59, 59, 0.851);
-    
-}
-
-#register_suggestion a {
-    text-decoration: none;
-    color: #1e35e2;
-}
-
-#register_suggestion a:hover {
-    text-decoration: underline #4F63F7;
 }
 
 #slogan_and_image {
@@ -83,7 +85,7 @@ header h1 {
     font-size: 120%
 }
 
-.login_island {
+.island {
     border: solid 1px rgba(210, 210, 210, 0.307);
     background-color: white;
     border-radius: .3vw;
@@ -96,22 +98,68 @@ header h1 {
     
 }
 
-.login_island h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif
+.island h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 8%
 }
 
-#log_in_p {
+.island h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    font-size: 110%;
+    margin-bottom: 1%
+}
+
+#starting_p {
     color: rgba(0, 0, 0, 0.591);
     font-size: 110%;
     margin-top: -3%;
     margin-bottom: 7%
 }
 
-.login_island h2 {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: normal;
-    font-size: 110%;
-    margin-bottom: 1%
+#added_message {
+    text-align: center;
+    margin-top: 5%;
+    font-size: 110%
+}
+
+#added_message a {
+    color: #4F63F7
+}
+
+
+#submit_button {
+    margin-top: 5%;
+    background-color: #4F63F7;
+    color: white;
+    border: solid transparent;
+    border-radius: .3vw
+}
+
+#submit_button:hover {
+    background-color: blue
+}
+
+button {
+    display: flex;
+    align-items: center;
+    gap: 1%;
+    justify-content: center;
+    width: 65%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 100%;
+    min-width: 365px;
+}
+
+.diff_signin {
+    background-color: white;
+    border: 2px solid rgb(167, 167, 167);
+    border-radius: .3vw
+}
+
+.diff_signin:hover {
+    background-color: rgb(213, 211, 211)
 }
 
 .div_input {
@@ -146,44 +194,14 @@ input:focus {
 
 .password a {
     text-decoration: none;
-    margin-top: -2%
+    margin-top: -2%;
+    color: #4F63F7;
 }
 
 .password a:hover {
     text-decoration: underline
 }
 
-#login_button {
-    margin-top: 5%;
-    background-color: #4F63F7;
-    color: white;
-    border: solid transparent;
-    border-radius: .3vw
-}
-
-button {
-    display: flex;
-    align-items: center;
-    gap: 1%;
-    justify-content: center;
-    width: 65%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    font-size: 100%;
-    min-width: 365px;
-}
-
 #or {
     text-align: center;
-}
-
-.register_suggestion {
-    text-align: center;
-    margin-top: 5%
-}
-
-.diff_signin {
-    background-color: white;
-    border: 2px solid rgb(167, 167, 167);
-    border-radius: .3vw
 }

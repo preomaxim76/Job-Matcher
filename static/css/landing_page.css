@@ -34,11 +34,11 @@ header h1 {
 }
 
 #header_buttons form {
-    display: inline-block
+    display: inline-block;
 }
 
 #header_buttons button:hover {
-    transform: scale(1.05)
+    transform: scale(1.05);
 }
 
 #white_button {
@@ -56,7 +56,7 @@ header h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 1.5%
+    margin-top: 1.5%;
 }
 
 #landing_image {
@@ -100,14 +100,16 @@ header h1 {
 
 #left_body_buttons {
     display: flex;
-    gap: 3%
+    gap: 10%
 }
 
 #left_body_buttons button {
     font-size: 160%;
-    border: solid transparent;
-    border-radius: 2vw;
-    padding: 1% 4% 1% 4%;
+    padding: .7vw;
+    border: solid rgb(174, 174, 174) 2px;
+    border-radius: 1vw;
+    width: 120%;
+    font-family: Georgia, 'Times New Roman', Times, serif
 }
 
 #left_body_buttons #blue_button {
@@ -115,9 +117,7 @@ header h1 {
     display: flex;
     align-items: center;
     gap: 5%;
-    width: 38%;
     border: solid transparent;
-    border-radius: 2vw;
 }
 
 #left_body_buttons #white_button {
@@ -133,6 +133,10 @@ header h1 {
     background-color: gray
 }
 
+#left_body_buttons form {
+    display: inline-block
+}
+
 #right_in_h1 {
     color: #4F63F7;
 }
@@ -146,3 +150,5 @@ header h1 {
     gap: 1.5%;
     width: 50%
 }
+
+

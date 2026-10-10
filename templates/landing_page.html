@@ -37,8 +37,12 @@
             
             {% include "slogan.html" %}
             <div id="left_body_buttons">
-                <button id="blue_button">Get Started<span><img width="70%" src="/static/images/small_white_arrow.png"></span></button>
-                <button id="white_button">Learn More</button>
+                <form action="/register" method="GET">
+                    <button id="blue_button">Get Started<span><img width="70%" src="/static/images/small_white_arrow.png"></span></button>
+                </form>
+                <form action="/learn_more" method="GET">
+                    <button id="white_button">Learn More</button>
+                </form>
             </div>
 
 

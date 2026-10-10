@@ -5,31 +5,50 @@
 {% endblock %}
 
 {% block page_css %}
-    <link rel="stylesheet" href="/static/css/register.css">
+    <link rel="stylesheet" href="/static/css/auth.css">
+{% endblock %}
+
+{% block header %}
+    <header>
+        <div id="heading">
+            <img src="/static/images/blue_man_house.png">
+            <h1>Job-Matcher</h1>
+        </div>
+        <div id="another_method_suggestion">
+            <h4>Already have an account?</h4>
+            <a href="/login">Log In</a>
+        </div>
+    </header>
 {% endblock %}
 
 {% block main %}
+    <div id="slogan_and_image">
+        {% include "slogan.html" %}
+        <img width="110%" alt="Man with a laptop, searching for job." src="/static/images/job_matcher_man_diff_background.png">
+    </div>
 
-    <div class="register_island">
-        <h1 id="register_h1">Register</h1>
+    <div class="island">
+        <h1>Create your account</h1>
+        <p id="starting_p">Get started with Job Matcher today</p>
 
         <form action="/register" method="POST">
-            <div class="sect">
-                <h1>1. Create a username</h1>
-                <input type="text" name="username" class="register_input" placeholder="Username" autofocus autocomplete="off" required>
-            </div>
-            <div class="sect">
-                <h1>2. Create a password</h1>
-                <input type="text" name="password" class="register_input" placeholder="Password" autofocus autocomplete="off" required>
-            </div>
-            <div class="sect">
-                <h1>3. Repeat your password</h1>
-                <input type="text" name="password_confirmation" class="register_input" placeholder="Password" autofocus autocomplete="off" required>
-            </div>
+            <h2>Username</h2>
+            <input type="text" name="username" placeholder="Your username" autofocus autocomplete="off" required>
             
-            <button type="submit">Register</button>
+            <h2>Password</h2>
+            <input type="text" name="password" placeholder="Your password" autofocus autocomplete="off" required>
+            <h2>Confirm password</h2>
+            <input type="text" name="password_confirmation" placeholder="Your password" autofocus autocomplete="off" required>
+        
+            <button id="submit_button" type="submit">Create account<span><img width="70%" src="/static/images/small_white_arrow.png"></span></button>
         </form>
-        <a href="/login">Back to Log In page</a>
+
+        <p id="or">or</p>
+
+        <form action="/login" method="POST"> 
+            <button name="action" value="google-signin" class="diff_signin" type="submit"><span><img width="30%" src="/static/images/google.png"></span>Continue with Google</button>
+        </form>
+        <p id="added_message">Already have an account? <a href="/login">Log In</a></p>
     </div>
 
 {% endblock %}
