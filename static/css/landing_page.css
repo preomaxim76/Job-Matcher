@@ -1,3 +1,7 @@
+body {
+    margin: 0
+}
+
 header {
     display: flex;
     align-items: center;
@@ -265,4 +269,37 @@ header h1 {
     line-height: 1.4;
     color: rgba(0, 0, 0, 0.642);
     margin-top: -4%
+}
+
+footer {
+    background-color: rgb(26, 26, 39);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1.5%;
+    padding-right: 10%;
+    margin-top: 2.5%;
+    align-items: center;
+    
+}
+
+#title p {
+    margin-top: -10%
+}
+
+#icons {
+    width: 30%;
+    margin-right: -17%
+}
+
+#icons img {
+    width: 8%;
+    margin-right: 10%;
+    border: solid transparent;
+    border-radius: 2vw;
+    background-color: rgb(89, 89, 114)
+}
+
+#icons img:hover {
+    transform: scale(1.1)
 }
