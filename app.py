@@ -168,3 +168,7 @@ def register():
 @app.route("/learn_more")
 def learn_more():
     return render_template("learn_more.html")
+
+@app.route("/forgot_password")
+def forgot_password():
+    return render_template("forgot_password.html")

@@ -151,4 +151,118 @@ header h1 {
     width: 50%
 }
 
+/* Down body */
 
+#more_information_body {
+    background-color: rgba(0, 0, 255, 0.093)
+}
+
+#more_info {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+    align-items: center;
+    margin-right: 10%;
+    margin-left: 4%;
+    padding-top: 2%
+}
+
+.more_info_section {
+    display: flex;
+    flex-direction: column;
+}
+
+.more_info_section img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    width: 45%;
+    border: solid transparent;
+    border-radius: 3vw;
+    padding: 3.5%
+}
+
+.ai_section img {
+    background-color: rgba(0, 0, 255, 0.22)
+}
+
+.user_section img {
+    background-color: rgba(0, 128, 0, 0.22)
+}
+
+.lightning_section img {
+    background-color: rgba(255, 166, 0, 0.22)
+}
+
+.shield_section img {
+    background-color: rgba(0, 0, 176, 0.22)
+}
+
+.text_field {
+    width: 160%;
+}
+
+.text_field p {
+    color: rgba(0, 0, 0, 0.591);
+    width: 110%;
+    line-height: 1.4;
+    margin-top: -5%;
+    font-size: 100%
+}
+
+#how_it_works {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 255, 0.091);
+    margin-top: 1.5%;
+    margin-left: 2%;
+    margin-right: 2%
+}
+
+#how_it_works img {
+    display: block
+}
+
+#steps {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5%;
+    margin-left: 12%;
+    margin-top: 1%;
+    align-items: center
+
+}
+
+.number {
+    width: 10%;
+    border: solid transparent;
+    border-radius: 2vw;
+    background-color: rgba(0, 0, 255, 0.198);
+    padding: .5%
+}
+
+#how_it_works h3 {
+    color: #4F63F7;
+    text-align: center
+}
+
+#how_it_works h1 {
+    text-align: center;
+    font-family: Impact;
+    margin-top: -.5%
+}
+
+.text {
+    width: 50%;
+}
+
+.text h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.text p {
+    line-height: 1.4;
+    color: rgba(0, 0, 0, 0.642);
+    margin-top: -4%
+}
