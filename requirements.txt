@@ -3,3 +3,5 @@ jinja2
 Authlib
 bcrypt
 python-dotenv
+resend
+itsdangerous
