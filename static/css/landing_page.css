@@ -18,7 +18,7 @@ header h1 {
     align-items: center;
     width: 45%;
     margin-left: 4%;
-    gap: 2%
+
 }
 
 #header_buttons {
@@ -41,8 +41,12 @@ header h1 {
     display: inline-block;
 }
 
-#header_buttons button:hover {
-    transform: scale(1.05);
+#white_button:hover {
+    background-color: rgb(221, 221, 221)
+}
+
+#blue_button:hover {
+    background-color: blue
 }
 
 #white_button {
@@ -129,12 +133,11 @@ header h1 {
 }
 
 #left_body_buttons #blue_button:hover {
-    color: black
+    background-color: blue;
 }
 
 #left_body_buttons #white_button:hover {
-    color: white;
-    background-color: gray
+    background-color: rgb(221, 221, 221)
 }
 
 #left_body_buttons form {

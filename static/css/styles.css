@@ -6,6 +6,11 @@ html {
     overflow-x: hidden
 }
 
+header a {
+    text-decoration: None;
+    color: black
+}
+
 img {
     user-select: none;
 }
