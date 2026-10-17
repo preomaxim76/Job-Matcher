@@ -18,6 +18,21 @@ def connect_database(db: str):
     conn.row_factory = sqlite3.Row
     return conn
 
+def password_is_valid(password, confirmation):
+    if len(password) < 4:
+        return "Password's length is less than 4."
+
+    if len(password) > 18:
+        return "Password's length is more than 18."
+
+    if password.isalpha():
+        return "Password should have at least 1 digit."
+
+    if password != confirmation:
+        return "Passwords do not match."
+
+    return True
+
 # Decorator function
 def login_required(function):
     @wraps(function)
@@ -166,17 +181,13 @@ def register():
             flash("Please enter a valid username!", "error")
             return redirect("/register")
 
-        # Password's length should be in range 4-18
         password = request.form.get("password")
-        if not (3 < len(password) < 19):
-            flash("Your password's length should be in range 4 - 18!", "error")
-            conn.close()
-            return redirect("/register")
-
-        # Checking if confirmation and password match
         confirmation = request.form.get("password_confirmation")
-        if password != confirmation:
-            flash("Passwords do not match!", "error")
+
+        is_valid = password_is_valid(password, confirmation)
+
+        if is_valid != True:
+            flash(is_valid, "error")
             conn.close()
             return redirect("/register")
 
@@ -189,18 +200,18 @@ def register():
         session["user_id"] = c.execute("SELECT user_id FROM users WHERE username = ?", (username, )).fetchone()[0]
         conn.close()
 
-        # After saving checking wether email is valid (then we'll delete it if not)
+        # After saving check wether email is valid (then we'll delete it if not)
         token = serializer.dumps(email, salt="email_verification")
         
         # Verification url with the whole route (.../verify_email/...)
-        verification_url = url_for("verify_email", token=token, _external=True)
+        verification_url = url_for("verify_email_registration", token=token, _external=True)
 
         r = resend.Emails.send({
             "from": "Job Matcher <onboarding@resend.dev>",
             "to": email,
             "subject": "Verify your email.",
             "html": f"""
-                <p>Hello!</p>
+                <h1>Hello from Job Matcher!</h1>
                 <p>Follow this link to verify your email</p>
                 <a href="{verification_url}">Verify Email</a>"""
             })
@@ -214,8 +225,8 @@ def register():
     else:
         return render_template("register.html")
 
-@app.route("/verify_email/<token>")
-def verify_email(token):
+@app.route("/verify_email_registration/<token>")
+def verify_email_registration(token):
     try:
         # max_age = 1 hour
         # Verifying
@@ -249,6 +260,90 @@ def verify_email(token):
 def learn_more():
     return render_template("learn_more.html")
 
-@app.route("/forgot_password")
+@app.route("/forgot_password", methods=["GET", "POST"])
 def forgot_password():
-    return render_template("forgot_password.html")
+    if request.method == "POST":
+        email = request.form.get("email")
+
+        conn = connect_database("users.db")
+        c = conn.cursor()
+
+        if not c.execute("SELECT * FROM users WHERE email = ?", (email, )).fetchone():
+            flash("This email is not linked to any existing account.", "error")
+            return redirect("/forgot_password")
+
+        # Creating a safe token 
+        token = serializer.dumps(email, salt="reset-password")
+
+        # Verification link that we'll put in an email
+        verification_link = url_for("verify_email_password", token=token, _external=True)
+
+        r = resend.Emails.send(
+            {
+                "from": "Job Matcher <onboarding@resend.dev>",
+                "to": email, 
+                "subject": "Reset password",
+                "html": f"""
+                    <h1>Hello from Job Matcher!</h1>
+                    <p>This is an email to reset your password. If it weren't you, who wanted to do that, please ignore this email.</p>
+                    <p>If it was you, please follow this link: <a href="{verification_link}">Reset Password</a></p>"""
+            }
+        )
+
+        print(r)
+
+        flash("Verification link sent. Please check your inbox.", "success")
+        return redirect("/forgot_password")
+
+    else:
+        return render_template("forgot_password.html")
+
+
+@app.route("/verify_email/<token>")
+def verify_email_password(token):
+    try: 
+        email = serializer.loads(
+            token, 
+            salt="reset-password",
+            max_age=3600
+        )
+
+        session["email"] = email
+
+        return redirect("/reset_password")
+    except:
+        flash("Link expired or invalid.", "error")
+        return redirect("/forgot_password")
+
+@app.route("/reset_password", methods=["POST", "GET"])
+def reset_password():
+    if request.method == "POST":
+        if "email" in session:
+            password = request.form.get("password")
+            confirmation = request.form.get("confirmation")
+            is_valid = password_is_valid(password, confirmation)
+
+            if is_valid != True:
+                flash(is_valid, "error")
+                return redirect("/reset_password")
+
+            hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+
+            conn = connect_database("users.db")
+            c = conn.cursor()
+
+            c.execute("UPDATE users SET password = ? WHERE email = ?", (hashed_password, session["email"]))
+            conn.commit()
+            conn.close()
+
+            del session["email"]
+
+            flash("You have successfully changed your password!", "success")
+            return redirect("/")
+
+        else:
+            flash("Unauthorized. Please use the link in the email.", "error")
+            return redirect("/forgot_password")
+
+    else:
+        return render_template("reset_password.html")
