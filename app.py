@@ -19,8 +19,8 @@ def connect_database(db: str):
     return conn
 
 def password_is_valid(password, confirmation):
-    if len(password) < 4:
-        return "Password's length is less than 4."
+    if len(password) < 6:
+        return "Password's length is less than 6."
 
     if len(password) > 18:
         return "Password's length is more than 18."
@@ -72,11 +72,11 @@ serializer = URLSafeTimedSerializer(
 @app.route("/")
 @login_required
 def index():
-    return render_template("index.html")
+    return render_template("index.html", show_nav=True)
 
 @app.route("/landing_page")
 def landing_page():
-    return render_template("landing_page.html", show_nav="False")
+    return render_template("landing_page.html")
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
@@ -94,6 +94,12 @@ def login():
             # If no such user at all
             if not db_password:
                 flash("Incorrect email or password.", "error")
+                conn.close()
+                return redirect("/login")
+            
+            # If user registered using google (didn't create password)
+            if not db_password["password"]:
+                flash("This account has been registered via google. Please log in using google.", "error")
                 conn.close()
                 return redirect("/login")
 
@@ -116,7 +122,7 @@ def login():
         return google.authorize_redirect("http://127.0.0.1:5000/auth/google/callback") # Special url - created at google cloud console
     
     else:
-        return render_template("login.html", show_nav=False)
+        return render_template("login.html")
 
 @app.route("/auth/google/callback")
 # Redirected to "http://127.0.0.1:5000/auth/google/callback"
@@ -150,7 +156,7 @@ def google_callback():
         c.execute("INSERT INTO users (email, google_id, created_at, username) VALUES (?, ?, ?, ?)", (user["email"], user["sub"], time, user["name"]))
         conn.commit()
 
-        session["user_id"] = c.execute("SELECT user_id FROM users WHERE username = ?", (user["name"],)).fetchone()[0]
+        session["user_id"] = c.execute("SELECT user_id FROM users WHERE email = ?", (user["email"],)).fetchone()[0]
         flash("You have successfully registered!", "success")
         
     conn.close()
@@ -162,6 +168,10 @@ def register():
     if request.method == "POST":
         time = datetime.now()
         email = request.form.get("email")
+
+        if not email:
+            flash("Email is missing.", "error")
+            return redirect("/register")
         
         if not email.endswith("@gmail.com"):
             flash("Email is not valid. Please enter a valid one.", "error")
@@ -176,13 +186,23 @@ def register():
             return redirect("/login")
 
         username = request.form.get("username")
+        if not username:
+            flash("Username is missing.", "error")
+            return redirect("/register")
         # Username should have some alphabetic character and should be < 19 but > 2
         if username.isdigit() or not (2 < len(username) < 19):
             flash("Please enter a valid username!", "error")
             return redirect("/register")
 
         password = request.form.get("password")
+        if not password:
+            flash("Password is missing.", "error")
+            return redirect("/register")
+        
         confirmation = request.form.get("password_confirmation")
+        if not confirmation:
+            flash("Password confirmation is missing.", "error")
+            return redirect("/register")
 
         is_valid = password_is_valid(password, confirmation)
 
@@ -197,7 +217,7 @@ def register():
         c.execute("INSERT INTO users (email, password, created_at, username) VALUES (?, ?, ?, ?)", (email, hashed_password, time, username))
         conn.commit()
         
-        session["user_id"] = c.execute("SELECT user_id FROM users WHERE username = ?", (username, )).fetchone()[0]
+        session["user_id"] = c.execute("SELECT user_id FROM users WHERE email = ?", (email, )).fetchone()[0]
         conn.close()
 
         # After saving check wether email is valid (then we'll delete it if not)
@@ -246,7 +266,10 @@ def verify_email_registration(token):
         # Remove user from the table
         conn = connect_database("users.db")
         c = conn.cursor()
-        c.execute("DELETE FROM users WHERE user_id = ?", (session["user_id"], ))
+        try:
+            c.execute("DELETE FROM users WHERE user_id = ?", (session["user_id"], ))
+        except:
+            pass
         conn.commit()
         conn.close()
 
@@ -270,7 +293,10 @@ def forgot_password():
 
         if not c.execute("SELECT * FROM users WHERE email = ?", (email, )).fetchone():
             flash("This email is not linked to any existing account.", "error")
+            conn.close()
             return redirect("/forgot_password")
+
+        conn.close()
 
         # Creating a safe token 
         token = serializer.dumps(email, salt="reset-password")

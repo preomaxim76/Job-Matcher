@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&display=swap');
 @import url('styles.css');
 
-
 html {
     background-color: white;
     margin: 0;
@@ -37,25 +36,6 @@ main {
 
 #another_method_suggestion a:hover {
     text-decoration: underline #4F63F7;
-}
-
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header h1 {
-    font-size: 220%;
-    font-family: "Edu VIC WA NT Hand", cursive;
-}
-
-#heading {
-    display: flex;
-    align-items: center;
-    width: 45%;
-    margin-left: 20%;
 }
 
 #slogan_and_image {

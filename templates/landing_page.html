@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="/static/css/landing_page.css">
 {% endblock %}
 
-{% block main %}
-
+{% block header %}
     <header>
         <div id="heading">
-            <img width="15%" src="static/images/Modern Blue Violet Briefcase Icon.png">
-            <a alt="Get back to landing page" href="/landing_page"><h1>Job-Matcher</h1></a>
+            <img width="12%" src="static/images/Modern Blue Violet Briefcase Icon.png">
+            <a class="job-matcher-link" alt="Get back to landing page" href="/landing_page"><h1>Job-Matcher</h1></a>
         </div>
 
         <div id="header_buttons">
@@ -23,10 +22,11 @@
             <form action="/register" method="GET">
                 <button type="submit" id="blue_button">Sign In</button>
             </form>
-            
         </div>
     </header>
+{% endblock %}
 
+{% block main %}
     <hr>
         
     <div id="main_body">
@@ -38,10 +38,10 @@
             {% include "slogan.html" %}
             <div id="left_body_buttons">
                 <form action="/register" method="GET">
-                    <button id="blue_button">Get Started<span><img width="70%" src="/static/images/small_white_arrow.png"></span></button>
+                    <button id="blue_button">Get started<span><img width="70%" src="/static/images/small_white_arrow.png"></span></button>
                 </form>
                 <form action="/learn_more" method="GET">
-                    <button id="white_button">Learn More</button>
+                    <button id="white_button">Learn more</button>
                 </form>
             </div>
 

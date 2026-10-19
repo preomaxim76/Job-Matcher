@@ -11,8 +11,8 @@
 {% block header %}
     <header>
         <div id="heading">
-            <img width="15%" src="static/images/Modern Blue Violet Briefcase Icon.png">
-            <a alt="Get back to landing page" href="/landing_page"><h1>Job-Matcher</h1></a>
+            <img width="12%" src="static/images/Modern Blue Violet Briefcase Icon.png">
+            <a class="job-matcher-link" alt="Get back to landing page" href="/landing_page"><h1>Job-Matcher</h1></a>
         </div>
         <div id="another_method_suggestion">
             <h4>Already have an account?</h4>
@@ -35,10 +35,10 @@
             <h2>Email</h2>
             <input type="text" name="email" placeholder="example@gmail.com" autofocus autocomplete="off" required>
 
-            <h2>Create Username</h2>
+            <h2>Create username</h2>
             <input type="text" name="username" placeholder="Your username" autofocus autocomplete="off" required>
             
-            <h2>Create Password</h2>
+            <h2>Create password</h2>
             <input type="text" name="password" placeholder="Your password" autofocus autocomplete="off" required>
             <h2>Confirm password</h2>
             <input type="text" name="password_confirmation" placeholder="Your password" autofocus autocomplete="off" required>
@@ -51,7 +51,7 @@
         <form action="/login" method="POST"> 
             <button name="action" value="google-signin" class="diff_signin" type="submit"><span><img width="30%" src="/static/images/google.png"></span>Continue with Google</button>
         </form>
-        <p id="added_message">Already have an account? <a href="/login">Log In</a></p>
+        <p id="added_message">Already have an account? <a href="/login">Log in</a></p>
     </div>
 
 {% endblock %}

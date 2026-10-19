@@ -1,14 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&family=Tektur:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Caveat+Brush&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Orbitron:wght@400..900&family=Tektur:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 
 html {
     margin: 0;
     overflow-x: hidden
 }
 
-header a {
+header, nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#heading {
+    display: flex;
+    align-items: center;
+    width: 45%;
+    margin-left: 19%;
+}
+
+#heading a {
+    margin-left: -2%
+}
+
+.job-matcher-link {
     text-decoration: None;
-    color: black
+    color: black;
+    font-family: "Fredoka";
 }
 
 img {
@@ -25,13 +44,14 @@ body {
     border: solid transparent;
     border-radius: .3vw;
     text-align: center;
-    font-size: 140%;
+    font-size: 130%;
     position: absolute;
     padding: .5% .5% .5% 1%;
     display: flex;
     align-items: center;
     top: 1rem;
     left: 1rem;
+    width: fit-content;
 }
 
 .flash-error {

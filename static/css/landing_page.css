@@ -2,23 +2,11 @@ body {
     margin: 0
 }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header h1 {
-    font-size: 220%;
-    font-family: "Edu VIC WA NT Hand", cursive;
-}
-
 #heading {
     display: flex;
     align-items: center;
     width: 45%;
-    margin-left: 4%;
-
+    margin-left: 2.5%;
 }
 
 #header_buttons {
@@ -90,7 +78,7 @@ header h1 {
     padding-right: .5%;
     padding-left: .5%;
     color: #4F63F7;
-    background-color: rgba(113, 157, 244, 0.357);
+    background-color: rgba(113, 157, 244, 0.226);
 }
 
 #left_body h1 {
@@ -152,7 +140,7 @@ header h1 {
     display: flex;
     align-items: center;
     margin-top: 3%;
-    font-size: 115%;
+    font-size: 105%;
     color: rgba(0, 0, 0, 0.591);
     gap: 1.5%;
     width: 50%
@@ -223,7 +211,9 @@ header h1 {
     background-color: rgba(0, 0, 255, 0.091);
     margin-top: 1.5%;
     margin-left: 2%;
-    margin-right: 2%
+    margin-right: 2%;
+    border: solid transparent;
+    border-radius: .4vw
 }
 
 #how_it_works img {
