@@ -7,23 +7,6 @@ html {
     overflow-x: hidden
 }
 
-header, nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#heading {
-    display: flex;
-    align-items: center;
-    width: 45%;
-    margin-left: 19%;
-}
-
-#heading a {
-    margin-left: -2%
-}
-
 .job-matcher-link {
     text-decoration: None;
     color: black;

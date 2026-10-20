@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="/static/css/landing_page.css">
 {% endblock %}
 
-{% block header %}
+{% block main %}
     <header>
         <div id="heading">
-            <img width="12%" src="static/images/Modern Blue Violet Briefcase Icon.png">
+            <img width="20%" src="static/images/briefcase.png">
             <a class="job-matcher-link" alt="Get back to landing page" href="/landing_page"><h1>Job-Matcher</h1></a>
         </div>
 
@@ -20,25 +20,23 @@
                 <button type="submit" id="white_button">Log In</button>
             </form>
             <form action="/register" method="GET">
-                <button type="submit" id="blue_button">Sign In</button>
+                <button type="submit" class="blue_button">Get Started</button>
             </form>
         </div>
     </header>
-{% endblock %}
 
-{% block main %}
-    <hr>
+    <hr id="line">
         
     <div id="main_body">
-        <div id="left_body">
-            <div id="left_body_h2">
-                <img width="7%" alt="Intelligence spark" src="/static/images/intelligence_spark.png"><h2>Smartest job search. Best matches.</h2>
+        <div id="body1">
+            <div id="body1_blue_intelligence">
+                <img width="5%" alt="Intelligence spark" src="/static/images/intelligence_spark.png"><h2>Smartest job search. Best matches.</h2>
             </div>
             
             {% include "slogan.html" %}
-            <div id="left_body_buttons">
+            <div id="body1_buttons">
                 <form action="/register" method="GET">
-                    <button id="blue_button">Get started<span><img width="70%" src="/static/images/small_white_arrow.png"></span></button>
+                    <button class="blue_button button_with_arrow">Get started<span><img width="60%" src="/static/images/right_arrow_white.png"></span></button>
                 </form>
                 <form action="/learn_more" method="GET">
                     <button id="white_button">Learn more</button>
@@ -47,8 +45,8 @@
 
 
             <div id="join_suggestion">
-                <img width="20%" src="/static/images/people.png">
-                <h4>Join thousands finding their next opportunity!</h4>
+                <img width="8%" src="/static/images/people.png">
+                <p>Join thousands finding their next opportunity!</p>
             </div>
         </div>
 
