@@ -8,7 +8,7 @@ html {
 }
 
 .job-matcher-link {
-    text-decoration: None;
+    text-decoration: none;
     color: black;
     font-family: "Fredoka";
 }
@@ -25,14 +25,14 @@ body {
 .flash {
     color: white;
     border: solid transparent;
-    border-radius: .3vw;
+    border-radius: 5px;
     text-align: center;
     font-size: 130%;
     position: absolute;
     padding: .5% .5% .5% 1%;
     display: flex;
     align-items: center;
-    top: 1rem;
+    top: -1rem;
     left: 1rem;
     width: fit-content;
 }

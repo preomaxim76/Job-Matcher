@@ -1,18 +1,20 @@
+@import url("styles.css");
+
 body {
     margin: 0;
+}
+
+main{
+    margin-left: 5%;
+}
+
+#line {
+    margin-left: -5%;
 }
 
 header {
     display: flex;
     justify-content: space-between;
-}
-
-main{
-    margin-left: 5%
-}
-
-#line {
-    margin-left: -5%
 }
 
 #heading {
@@ -199,10 +201,6 @@ main{
 #how_it_works h1 {
     margin-top: 0;
     margin-bottom: 2%;
-}
-
-.text h1 {
-
 }
 
 .text p {

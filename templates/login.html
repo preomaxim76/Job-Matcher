@@ -6,49 +6,48 @@
 
 {% block page_css %}<link rel="stylesheet" href="/static/css/auth.css">{% endblock %}
 
-{% block header %}
+{% block main %}
     <header>
         <div id="heading">
-            <img width="12%" src="static/images/Modern Blue Violet Briefcase Icon.png">
+            <img width="20%" src="static/images/briefcase.png">
             <a class="job-matcher-link" alt="Get back to landing page" href="/landing_page"><h1>Job-Matcher</h1></a>
         </div>
         <div id="another_method_suggestion">
             <h4>Don't have an account?</h4>
-            <a href="/register">Register</a>
+            <a class="link" href="/register">Register</a>
         </div>
     </header>
-{% endblock %}
 
-{% block main %}
-    <div id="slogan_and_image">
-        {% include "slogan.html" %}
-        <img width="110%" alt="Man with a laptop, searching for job." src="/static/images/job_matcher_man_diff_background.png">
-    </div>
+    <section id="body">
+        <div id="slogan_and_image">
+            {% include "slogan.html" %}
+            <img alt="Man with a laptop, searching for job." src="/static/images/job_matcher_man_diff_background.png">
+        </div>
 
+        <div class="island">
+            <h1>Welcome back</h1>
+            <p id="starting_p">Log in to your Job-Matcher account</p>
 
-    <div class="island">
-        <h1>Welcome back</h1>
-        <p id="starting_p">Log in to your Job-Matcher account</p>
+            <form action="/login" method="POST">
+                <h2>Email</h2>
+                <input type="text" name="email" placeholder="example@gmail.com" autofocus autocomplete="off" required>
 
-        <form action="/login" method="POST">
-            <h2>Email</h2>
-            <input type="text" name="email" placeholder="example@gmail.com" autofocus autocomplete="off" required>
+                <h2>Password</h2>
+                <div class="password">
+                    <input type="password" name="password" placeholder="Your password" autofocus autocomplete="off" required>
+                    <a class="link" href="/forgot_password">Forgot Password?</a>
+                </div>
+                <button id="submit_button" type="submit">Log in<span><img width="70%" src="/static/images/right_arrow_white.png"></span></button>
+            </form>
 
-            <h2>Password</h2>
-            <div class="password">
-                <input type="password" name="password" placeholder="Your password" autofocus autocomplete="off" required>
-                <a href="/forgot_password">Forgot Password?</a>
-            </div>
-            <button id="submit_button" type="submit">Log in<span><img width="70%" src="/static/images/small_white_arrow.png"></span></button>
-        </form>
+            <p id="or">or</p>
 
-        <p id="or">or</p>
-
-        <form action="/login" method="POST"> 
-            <button name="action" value="google-signin" class="diff_signin" type="submit"><span><img width="30%" src="/static/images/google.png"></span>Continue with Google</button>
-        </form>
-        <p id="added_message">Don't have an account? <a href="/register">Register</a></p>
-    </div>
+            <form action="/login" method="POST"> 
+                <button name="action" value="google-signin" class="diff_signin" type="submit"><span><img width="30%" src="/static/images/google.png"></span>Continue with Google</button>
+            </form>
+            <p id="added_message">Don't have an account? <a class="link" href="/register">Register</a></p>
+        </div>
+    </section>
         
 {% endblock %}
 
