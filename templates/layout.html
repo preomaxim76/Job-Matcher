@@ -23,9 +23,22 @@
 
         {% if show_nav == True %}
             <nav>
-                <div id="heading">
-                    <img width="12%" src="static/images/Modern Blue Violet Briefcase Icon.png">
-                    <a class="job-matcher-link" alt="Get back to landing page" href="/landing_page"><h1>Job-Matcher</h1></a>
+                <div id="left_side">
+                    <div id="heading">
+                        <img width="5%" src="static/images/briefcase.png">
+                        <a class="job-matcher-link" alt="Get back to landing page" href="/landing_page"><h1>Job-Matcher</h1></a>
+                    </div>
+                    <div id="nav-menu">
+                        <a class="path" href="/"><p>Home</p></a>
+                        <a class="path" href="/jobs"><p>Jobs</p></a>
+                        <a class="path" href="/saved_jobs"><p>Saved</p></a>
+                        <a class="path" href="/about"><p>About</p></a>
+                    </div>
+                </div>
+
+                <div id="right-username">
+                    <img src="static/images/default_profile_avatar.png">
+                    <p id="username">Maxim</p>
                 </div>
             </nav>
         {% endif %}

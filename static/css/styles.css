@@ -13,14 +13,9 @@ html {
     font-family: "Fredoka";
 }
 
-img {
-    user-select: none;
-}
-
 body {
     position: relative;
 }
-
 
 .flash {
     color: white;
@@ -44,4 +39,50 @@ body {
 
 .flash-success {
     background-color: green;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    gap: 40%;
+    margin-left: 2%
+}
+
+#left_side {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    gap: 10%
+}
+
+#heading {
+    display: flex;
+    align-items: center;
+}
+
+#heading img {
+    width: 20%
+}
+
+#nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20%
+}
+
+.path {
+    text-decoration: none;
+    color: rgba(63, 63, 63, 0.641);
+    font-size: 130%;
+}
+
+#right-username {
+    display: flex;
+    width: min-content;
+    align-items: center;
+}
+
+#right-username img {
+    max-width: 130%;
+    height: auto;
 }

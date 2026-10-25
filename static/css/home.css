@@ -2,28 +2,22 @@ body {
     margin: 0
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#heading {
-    display: flex;
-    align-items: center;
-    width: 45%;
-    margin-left: 4%;
-
-}
-
 main {
-    padding-left: 5.5%;
     background-color: #EEF3FF;
+    margin-top: -1%
 }
 
 #left_body {
     margin-left: 4%;
-    width: 33%
+    width: 30%;
+}
+
+#left_body h1 {
+    width: 80%
+}
+
+#your_skills_blue {
+    color: #4F63F7
 }
 
 #top {
@@ -31,11 +25,11 @@ main {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 1.5%;
-    align-items: center;
 }
 
 #landing_image {
-    margin-right: -40%;
+    width: 40%;
+    margin-right: 10%
 }
 
 #left_body_h2 {
@@ -52,7 +46,8 @@ main {
     padding-right: .5%;
     padding-left: .5%;
     color: #4F63F7;
-    background-color: rgba(113, 157, 244, 0.226);
+    background-color: rgba(113, 157, 244, 0.194);
+    height: 5%
 }
 
 #left_body h1 {

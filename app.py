@@ -279,8 +279,8 @@ def verify_email_registration(token):
 
         return redirect("/register")
 
-@app.route("/learn_more")
-def learn_more():
+@app.route("/about")
+def about():
     return render_template("learn_more.html")
 
 @app.route("/forgot_password", methods=["GET", "POST"])
@@ -373,3 +373,14 @@ def reset_password():
 
     else:
         return render_template("reset_password.html")
+
+@app.route("/jobs")
+def jobs():
+    # TODO
+    return redirect("/landing_page")
+
+@app.route("/saved_jobs")
+def saved_jobs():
+    # TODO
+    return redirect("/landing_page")
+
