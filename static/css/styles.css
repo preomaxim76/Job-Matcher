@@ -79,10 +79,15 @@ nav {
 #right-username {
     display: flex;
     width: min-content;
-    align-items: center;
+    align-items: center;;
+}
+
+#right-username p {
+    font-size: 120%
 }
 
 #right-username img {
-    max-width: 130%;
+    max-width: 110%;
     height: auto;
+    margin-right: 20%
 }

@@ -17,10 +17,99 @@
             </div>
 
             <h1>Find a job that fits <span id="your_skills_blue">your skills.</span></h1>
-            <p>Tell us what you are looking for, and let out AI match you with the best opportunities. It's fast, easy, and tailored just for you.</p>
+            <p id="p_under_h1">Tell us what you are looking for, and let out AI match you with the best opportunities. It's fast, easy, and tailored just for you.</p>
+
+            <div id="join_suggestion">
+                <img width="10%" src="/static/images/people.png">
+                <p>Join thousands finding their next opportunity!</p>
+            </div>
         </div>
         
         <img id="landing_image" src="static/images/smiling_man_at_laptop.png">
+    </div>
+
+    <div class="island">
+        <form id="island_form">
+            <div class="row">
+                <div class="input_div">
+                    <p>Job Category <span class="star">*</span></p>
+                    <input class="input_1 input_" name="job_category" placeholder="e.g. Software Development, Marketing..." required>
+                </div>
+                <div class="input_div">
+                    <p>Skills <span class="star">*</span></p>
+                    <input class="input_1 input_" name="skills" placeholder="Skills" required>
+                </div>
+                <div class="input_div">
+                    <p>Experience <span class="star">*</span></p>
+                    <input class="input_1 input_" name="experience" placeholder="e.g. 3 years, 5+ years...">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input_div">
+                    <p>Job Type <span class="star">*</span></p>
+                    <div id="job_type_radios">
+                        <input name="job_type" value="any_type" type="radio" required>
+                        <label for="any_type">Any</label><br>
+                        <input name="job_type" value="online_type" type="radio" required>
+                        <label for="online_type">Online</label><br>
+                        <input name="job_type" value="offline_type" type="radio" required>
+                        <label for="offline_type">Offline</label><br>
+                        <input name="job_type" value="hybrid_type" type="radio" required>
+                        <label for="hybrid_type">Hybrid</label>
+                    </div>
+                </div>
+                <div class="input_div">
+                    <p>Location</p>
+                    <input class="input_2 input_" name="location" placeholder="e.g. New York, Remote">
+                </div>
+                <div class="input_div">
+                    <p>Salary Range (per year)</p>
+                    <input class="input_2 input_" name="salary_range" placeholder="e.g. $50k - $100k">
+                </div>
+                <div class="custom-checkbox">
+                    <input type="checkbox">
+                    <div id="text">
+                        <h3>Ready to move</h3>
+                        <p>Open to jobs in other countries</p>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form id="submit_form">
+            <button type="submit">Find Jobs</button>
+        </form> 
+    </div>
+
+    <div id="extra_info">
+        <div class="info">
+            <img>
+            <div class="text">
+                <h1>Smart Matching</h1>
+                <p>Our AI finds jobs that match your skills and goals.</p>
+            </div>
+        </div>
+        <div class="info">
+            <img>
+            <div class="text">
+                <h1>Trusted & Secure</h1>
+                <p>Your data is safe with us.</p>
+            </div>
+        </div>
+        <div class="info">
+            <img>
+            <div class="text">
+                <h1>Top Companies</h1>
+                <p>Get noticed by leading employers worldwide.</p>
+            </div>
+        </div>
+        <div class="info">
+            <img>
+            <div class="text">
+                <h1>Build Your Future</h1>
+                <p>New opportunities. Greater possibilities.</p>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
