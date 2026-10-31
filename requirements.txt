@@ -6,3 +6,4 @@ python-dotenv
 resend
 itsdangerous
 sqlite3
+groq

@@ -1,0 +1,59 @@
+<div class="island">
+        <form id="island_form">
+            <div class="row">
+                <div class="input_div">
+                    <p>Job Category <span class="star">*</span></p>
+                    <input class="input_1 input_" name="job_category" placeholder="e.g. Software Development, Marketing..." autocomplete="off" required>
+                </div>
+                <div class="input_div">
+                    <p>Skills <span class="star">*</span></p>
+                    <input class="input_1 input_" name="skills" placeholder="Skills" autocomplete="off" required>
+                </div>
+                <div class="input_div">
+                    <p>Experience <span class="star">*</span></p>
+                    <input class="input_1 input_" name="experience" placeholder="e.g. 3 years, 5+ years..." autocomplete="off">
+                </div>
+            </div>
+            <div class="row row2">
+                <div class="input_div">
+                    <p>Job Type <span class="star">*</span></p>
+                    <div id="job_type_radios">
+                        <label class="radio_label" onclick="checkRadioLabel(this)">
+                            <input name="job_type" value="any_type" type="radio" required>
+                            Any
+                        </label>
+                        <label class="radio_label" onclick="checkRadioLabel(this)">
+                            <input name="job_type" value="online_type" type="radio" required>
+                            Online
+                        </label>
+                        <label class="radio_label" onclick="checkRadioLabel(this)">
+                            <input name="job_type" value="offline_type" type="radio" required>
+                            Offline
+                        </label>
+                        <label class="radio_label" onclick="checkRadioLabel(this)">
+                            <input name="job_type" value="hybrid_type" type="radio" required>
+                            Hybrid
+                        </label>
+                    </div>
+                </div>
+                <div class="input_div">
+                    <p>Location</p>
+                    <input class="input_2 input_" name="location" placeholder="e.g. New York, Remote"  autocomplete="off">
+                </div>
+                <div class="input_div">
+                    <p>Salary Range (per year)</p>
+                    <input class="input_2 input_" name="salary_range" placeholder="e.g. $50k - $100k"  autocomplete="off">
+                </div>
+                <div class="custom-checkbox">
+                    <input type="checkbox">
+                    <div id="text">
+                        <h3>Ready to move</h3>
+                        <p>Open to jobs in other countries</p>
+                    </div>
+                </div>
+            </div>
+            <div id="submit_form">
+                <button type="submit">Find Jobs</button>
+            </div>
+        </form>
+    </div>

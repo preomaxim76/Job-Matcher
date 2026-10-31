@@ -1,0 +1,139 @@
+.island {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: white;
+    width: 90%;
+    border: solid transparent;
+    border-radius: 8px;
+    padding-bottom: 1%;
+    box-shadow: 0px 4px 10px 2px rgba(144, 141, 255, 0.2);
+}
+
+#island_form {
+    align-self: center;;
+    margin-right: 5%
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2.5%;
+    gap: 2.5%;
+}
+
+.row2 {
+    justify-content: center;
+}
+
+.input_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.input_div p {
+    font-size: 115%;
+    color: rgb(14, 14, 111);
+    font-weight: 700;
+}
+
+.star {
+    color: #4F63F7
+}
+
+#job_type_radios {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2%;
+    width: 400px;
+
+}
+
+.radio_label input {
+    appearance: none;
+    display: none;
+}
+
+.radio_label {
+    border: solid 2px rgba(98, 97, 97, 0.319);
+    padding: 5%;
+    font-size: 120%;
+    border-radius: 5px;
+    color: rgb(66, 66, 66);
+    user-select: none;
+}
+
+.radio_label:hover {
+    border-color: #4F63F7;
+    color: black
+}
+
+.radio_label_checked {
+    border: solid 2px transparent;
+    background-color: #4F63F7;
+    color: white;
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 2%
+}
+
+#text p {
+    margin-top: -10%;
+    width: 150%
+}
+
+.input_1 {
+    width: 500px;
+    height: 40px;
+    border: solid 2px rgba(0, 0, 0, 0.165);
+    border-radius: 8px;
+    font-size: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+}
+
+.input_2 {
+    width: 400px;
+    height: 40px;
+    border: solid 2px rgba(0, 0, 0, 0.165);;
+    border-radius: 8px;
+    font-size: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+}
+
+#submit_form {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -5%
+}
+
+#submit_form button {
+    background-color: #4F63F7;
+    color: black;
+    border: solid transparent;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    margin-top: -1%;
+    margin-right: 3%;
+    font-size: 120%;
+    color: white;
+}
+
+#submit_form button:hover {
+    background-color: blue;
+}
+
+.input_:focus {
+    outline: 2px solid #4F63F7;
+    border: 2px solid transparent
+}
+
+

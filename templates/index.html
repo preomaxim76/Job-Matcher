@@ -28,58 +28,7 @@
         <img id="landing_image" src="static/images/smiling_man_at_laptop.png">
     </div>
 
-    <div class="island">
-        <form id="island_form">
-            <div class="row">
-                <div class="input_div">
-                    <p>Job Category <span class="star">*</span></p>
-                    <input class="input_1 input_" name="job_category" placeholder="e.g. Software Development, Marketing..." required>
-                </div>
-                <div class="input_div">
-                    <p>Skills <span class="star">*</span></p>
-                    <input class="input_1 input_" name="skills" placeholder="Skills" required>
-                </div>
-                <div class="input_div">
-                    <p>Experience <span class="star">*</span></p>
-                    <input class="input_1 input_" name="experience" placeholder="e.g. 3 years, 5+ years...">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input_div">
-                    <p>Job Type <span class="star">*</span></p>
-                    <div id="job_type_radios">
-                        <input name="job_type" value="any_type" type="radio" required>
-                        <label for="any_type">Any</label><br>
-                        <input name="job_type" value="online_type" type="radio" required>
-                        <label for="online_type">Online</label><br>
-                        <input name="job_type" value="offline_type" type="radio" required>
-                        <label for="offline_type">Offline</label><br>
-                        <input name="job_type" value="hybrid_type" type="radio" required>
-                        <label for="hybrid_type">Hybrid</label>
-                    </div>
-                </div>
-                <div class="input_div">
-                    <p>Location</p>
-                    <input class="input_2 input_" name="location" placeholder="e.g. New York, Remote">
-                </div>
-                <div class="input_div">
-                    <p>Salary Range (per year)</p>
-                    <input class="input_2 input_" name="salary_range" placeholder="e.g. $50k - $100k">
-                </div>
-                <div class="custom-checkbox">
-                    <input type="checkbox">
-                    <div id="text">
-                        <h3>Ready to move</h3>
-                        <p>Open to jobs in other countries</p>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-        <form id="submit_form">
-            <button type="submit">Find Jobs</button>
-        </form> 
-    </div>
+    {% include "find_jobs_island.html" %}
 
     <div id="extra_info">
         <div class="info">

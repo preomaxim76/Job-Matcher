@@ -45,7 +45,7 @@ body {
 nav {
     display: flex;
     gap: 40%;
-    margin-left: 2%
+    margin-left: 2%;
 }
 
 #left_side {
@@ -76,6 +76,10 @@ nav {
     font-size: 130%;
 }
 
+.path:hover {
+    color: black;
+}
+
 #right-username {
     display: flex;
     width: min-content;
@@ -90,4 +94,10 @@ nav {
     max-width: 110%;
     height: auto;
     margin-right: 20%
+}
+
+/* Navigation underline */
+.underline_nav_path {
+    color: black;
+    text-decoration: underline solid #4F63F7;
 }

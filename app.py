@@ -8,6 +8,7 @@ from datetime import datetime
 import bcrypt
 import resend
 from itsdangerous import URLSafeTimedSerializer
+from groq import Groq # AI
 
 load_dotenv()
 
@@ -281,7 +282,7 @@ def verify_email_registration(token):
 
 @app.route("/about")
 def about():
-    return render_template("learn_more.html")
+    return render_template("learn_more.html", show_nav=True)
 
 @app.route("/forgot_password", methods=["GET", "POST"])
 def forgot_password():
@@ -374,10 +375,13 @@ def reset_password():
     else:
         return render_template("reset_password.html")
 
-@app.route("/jobs")
+@app.route("/jobs", methods=["POST", "GET"])
 def jobs():
-    # TODO
-    return redirect("/landing_page")
+    if request.method == "POST":
+        pass
+
+    else:
+        return render_template("find_jobs.html", show_nav=True)
 
 @app.route("/saved_jobs")
 def saved_jobs():
