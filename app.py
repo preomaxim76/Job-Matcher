@@ -6,6 +6,7 @@ import os
 from routes.auth import auth
 from routes.jobs import jobs
 from routes.profile import profile
+from services.groq_service import groq_service
 
 from extensions import oauth
 
@@ -25,8 +26,10 @@ app = Flask(__name__)
 app.secret_key = os.environ["SESSION_KEY"]
 
 app.register_blueprint(auth)
-#app.register_blueprint(jobs)
-#app.register_blueprint(profile)
+app.register_blueprint(jobs)
+app.register_blueprint(profile)
+
+app.register_blueprint(groq_service)
 
 oauth.init_app(app)
 
@@ -34,7 +37,7 @@ oauth.init_app(app)
 @app.route("/")
 @login_required
 def index():
-    return render_template("index.html", show_nav=True)
+    return render_template("index.html", show_nav=True, show_groq=True)
 
 @app.route("/landing_page")
 def landing_page():
@@ -42,17 +45,5 @@ def landing_page():
 
 @app.route("/about")
 def about():
-    return render_template("learn_more.html", show_nav=True)
-
-@app.route("/jobs", methods=["POST", "GET"])
-def jobs():
-    if request.method == "POST":
-        pass
-    else:
-        return render_template("find_jobs.html", show_nav=True)
-
-@app.route("/saved_jobs")
-def saved_jobs():
-    # TODO
-    return redirect("/landing_page")
+    return render_template("learn_more.html", show_nav=True, show_groq=True)
 

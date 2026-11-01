@@ -47,8 +47,34 @@
             {% block main %}{% endblock %}
         </main>
 
-        <foot>
+        {% if show_groq == True %}
+            <section class="ai_robot_icon">
+                <img onclick="aiRobotClicked()" alt="AI Robot" src="/static/images/ai_assistant_cropped.png">
+            </section>
 
-        </foot>
+            <section class="ai_chat hidden">
+                <div id="ai_chat_top">
+                    <p>Virtual Assistant</p>
+                    <img onclick="closeAiChat()" src="static/images/close.png">
+                </div>
+                <div id="ai_chat_window">
+                    {% for message in messages %}
+                        <p>message</p>
+                    {% endfor %}
+                </div>
+                <form action="/">
+                    <input type="text" placeholder="Ask me anything!" name="user_message" autocomplete="off" autofocus>
+                    <button type="submit">Ask</button>
+                </form>
+            </section>
+        {% endif %}
+
+        
+
+        {% if show_foot == True %}
+            <foot>
+
+            </foot>
+        {% endif %}
     </body>
 </html>

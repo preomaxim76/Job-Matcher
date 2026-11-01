@@ -31,10 +31,25 @@ else if (path.endsWith("/about"))
     document.querySelector(".about_path").classList.add("underline_nav_path");
 }
 
+// Job search radio
 function checkRadioLabel(label) 
 {
     document.querySelectorAll(".radio_label").forEach(
         element => element.classList.remove("radio_label_checked")
     )
     label.classList.add("radio_label_checked")
+}
+
+// AI robot 
+
+// Open chat
+function aiRobotClicked()
+{
+    document.querySelector(".ai_chat").classList.remove("hidden")
+}
+
+// Close chat
+function closeAiChat()
+{
+    document.querySelector(".ai_chat").classList.add("hidden")
 }

@@ -83,7 +83,7 @@ nav {
 #right-username {
     display: flex;
     width: min-content;
-    align-items: center;;
+    align-items: center;
 }
 
 #right-username p {
@@ -100,4 +100,52 @@ nav {
 .underline_nav_path {
     color: black;
     text-decoration: underline solid #4F63F7;
+}
+
+/* AI Robot Icon */
+.ai_robot_icon {
+    position: fixed;
+    right: 0;
+    top: 42.5vw;
+    display: inline-block;
+    width: 5%
+}
+
+.ai_robot_icon img {
+    display: block;
+    width: 80%
+}
+
+.hidden {
+    display: none;
+}
+
+.ai_chat {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: white;
+    width: 20%;
+    padding-left: 1%;
+    border: solid #4F63F7 2px;
+    border-radius: 5px;
+}
+
+#ai_chat_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#ai_chat_top img {
+    width: 15%
+}
+
+#ai_chat_top p {
+    font-size: 120%
+}
+
+#ai_chat_window {
+    height: 500px;
 }
