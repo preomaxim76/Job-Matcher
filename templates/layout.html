@@ -54,17 +54,23 @@
 
             <section class="ai_chat hidden">
                 <div id="ai_chat_top">
-                    <p>Virtual Assistant</p>
-                    <img onclick="closeAiChat()" src="static/images/close.png">
+                    <div id="left_top_chat">
+                        <img id="ai_icon" src="static/images/ai_assistant_cropped.png">
+                        <div>
+                            <h2>Matchy: your AI assistant</h2>
+                            <p>Here to help you find your role</p>
+                        </div>
+                    </div>
+                    <img id="close_chat" onclick="closeAiChat()" src="static/images/close.png">
                 </div>
+                <hr>
                 <div id="ai_chat_window">
-                    {% for message in messages %}
-                        <p>message</p>
-                    {% endfor %}
+                    
                 </div>
-                <form action="/">
-                    <input type="text" placeholder="Ask me anything!" name="user_message" autocomplete="off" autofocus>
-                    <button type="submit">Ask</button>
+                <hr>
+                <form>
+                    <input class="chat_input_field" type="text" placeholder="Ask me anything!" autocomplete="off" autofocus>
+                    <button onclick="sentMessage()" type="button"><img src="static/images/right_arrow_white.png"></button>
                 </form>
             </section>
         {% endif %}

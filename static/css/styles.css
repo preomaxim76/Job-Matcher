@@ -113,7 +113,15 @@ nav {
 
 .ai_robot_icon img {
     display: block;
-    width: 80%
+    width: 80%;
+}
+
+.ai_robot_icon img:active {
+    transform: scale(1.1);
+}
+
+.ai_robot_icon:hover {
+    transform: scale(0.9);
 }
 
 .hidden {
@@ -122,13 +130,14 @@ nav {
 
 .ai_chat {
     position: fixed;
-    top: 0;
+    top: 20%;
     right: 0;
     background-color: white;
-    width: 20%;
+    width: 18%;
     padding-left: 1%;
     border: solid #4F63F7 2px;
-    border-radius: 5px;
+    border-radius: 20px;
+    margin-right: .5%
 }
 
 #ai_chat_top {
@@ -138,14 +147,78 @@ nav {
 
 }
 
-#ai_chat_top img {
+#left_top_chat {
+    display: flex;
+    align-items: center;
+    gap: 2%
+}
+
+#ai_icon {
     width: 15%
 }
 
-#ai_chat_top p {
+#close_chat {
+    width: 10%;
+    margin-right: 2%
+}
+
+#close_chat:hover {
+    transform: scale(1.1);
+}
+
+#ai_chat_top h2 {
     font-size: 120%
 }
 
+#ai_chat_top p {
+    font-size: 100%;
+    margin-top: -5%;
+    color: rgb(121, 120, 120)
+}
+
 #ai_chat_window {
-    height: 500px;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: 0;
+}
+
+.chat_input_field {
+    width: 70%;
+    height: 40px;
+    border: solid 2px rgb(180, 180, 180);
+    border-radius: 20px;
+    font-size: 110%;
+    padding-left: 5%;
+    padding-top: 1%;
+}
+
+.chat_input_field:focus {
+    outline: #4F63F7 2px solid;
+}
+
+.ai_chat form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+    gap: 2%
+}
+
+.ai_chat form button {
+    height: 45px;
+    background-color: #4F63F7;
+    border: solid transparent;
+    border-radius: 2rem;
+    padding-top: 1.25%;
+}
+
+.ai_chat form button:hover {
+    background-color: blue;
+}
+
+.ai_chat form button:active {
+    transform: scale(.9);
+}
+
+.ai_chat hr {
+    margin-left: -5%
 }
