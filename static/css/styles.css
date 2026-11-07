@@ -222,3 +222,30 @@ nav {
 .ai_chat hr {
     margin-left: -5%
 }
+
+/* Classes for messages */
+.inchat_user_message {
+    border: solid transparent;
+    background-color: #4F63F7;
+    color: white;
+    width: fit-content;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: 5%;
+    font-size: 100%;
+    padding: 1% 2%;
+    border-radius: 10px;
+    
+}
+
+.inchat_ai_message {
+    border: solid transparent;
+    background-color: rgb(223, 223, 245);
+    color: black;
+    width: fit-content;
+    max-width: 300px;
+    font-family: Helvetica;
+    font-size: 100%;
+    padding: 1% 2%;
+    border-radius: 10px;
+}
