@@ -82,6 +82,7 @@ async function closeAiChat()
 {
     // Delete messages in ai window
     document.querySelector("#ai_chat_window").replaceChildren();
+    document.querySelector(".chat_input_field").value = '';
     
     // Delete ai chat history
     try 
@@ -105,13 +106,22 @@ async function closeAiChat()
 }
 
 // If user presses enter while having an ai chat open
-document.querySelector(".chat_input_field").addEventListener("keydown", (event) => {
+if (path.endsWith("/") || path.endsWith("/jobs") || path.endsWith("/saved") || path.endsWith("/about"))
+{
+    document.querySelector(".chat_input_field").addEventListener("keydown", (event) => {
     if (event.key === "Enter")
     {
         event.preventDefault();
-        sentMessage();
+        if (document.querySelector(".chat_input_field").value != "")
+        {
+            sentMessage();
+        }
+
     }
-});
+    });
+}
+
+let aiResponded = true;
 
 // Sent message
 async function sentMessage()
@@ -119,38 +129,57 @@ async function sentMessage()
     const chat_field = document.querySelector(".chat_input_field");
     
     const user_message = chat_field.value;
-    chat_field.value = "";
-
-    const user_message_p = document.createElement("p");
-    user_message_p.textContent = user_message;
-    user_message_p.classList.add("inchat_user_message");
-    document.getElementById("ai_chat_window").appendChild(user_message_p);
-
-    const data = {
-        requestedCategory: "reply", 
-        message: user_message
-    };
-
-    try 
+    if (user_message != "" && aiResponded == true)
     {
-        const response = await fetch("/js/ai_chat", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
+        aiResponded = false;
+        chat_field.value = "";
 
-        const responseData = await response.json();
-        
-        // Adding response to the chat window
-        const newParagraph = document.createElement("p");
-        newParagraph.textContent = responseData;
-        newParagraph.classList.add("inchat_ai_message");
-        document.getElementById("ai_chat_window").appendChild(newParagraph);
+        const user_message_p = document.createElement("p");
+        user_message_p.textContent = user_message;
+        user_message_p.classList.add("inchat_user_message");
+        document.getElementById("ai_chat_window").appendChild(user_message_p);
+
+        const data = {
+            requestedCategory: "reply", 
+            message: user_message
+        };
+
+        try 
+        {
+            const response = await fetch("/js/ai_chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+
+            const responseData = await response.json();
+            
+            // Adding response to the chat window
+            const newParagraph = document.createElement("p");
+            newParagraph.textContent = responseData;
+            newParagraph.classList.add("inchat_ai_message");
+            document.getElementById("ai_chat_window").appendChild(newParagraph);
+
+            aiResponded = true;
+        }
+        catch (error)
+        {
+            console.log("Error with communication between Flask and JavaScript.")
+        }
     }
-    catch (error)
-    {
-        console.log("Error with communication between Flask and JavaScript.")
-    }
+    
 }
+
+// *Settings
+function logOut()
+{
+    document.querySelector(".logging_out_message").classList.remove("hidden")
+}
+
+function closeLogOutWindow()
+{
+    document.querySelector(".logging_out_message").classList.add("hidden");
+}
+

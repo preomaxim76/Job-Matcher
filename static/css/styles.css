@@ -15,6 +15,13 @@ html {
 
 body {
     position: relative;
+    margin: 0
+}
+
+main {
+    border-top: 2px rgba(0, 0, 0, 0.191) solid;
+    background-color: #f4f7fd;
+    margin-top: 1%;
 }
 
 .flash {
@@ -94,6 +101,15 @@ nav {
     max-width: 110%;
     height: auto;
     margin-right: 20%
+}
+
+.settings_link_username {
+    text-decoration: none;
+    color: black;
+}
+
+.settings_link_username:hover {
+    color:#4F63F7
 }
 
 /* Navigation underline */
@@ -193,7 +209,9 @@ nav {
 }
 
 .chat_input_field:focus {
-    outline: #4F63F7 2px solid;
+    outline: #4F63F7 solid 2px;
+    border: 2px solid transparent;
+    
 }
 
 .ai_chat form {

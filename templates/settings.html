@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="/static/css/settings.css">
+{% endblock %}
+
+{% block main %}
+    <section class="left_side_menu">
+        <a class="settings_menu_item" href="#">
+            <img alt="" src="/static/images/settings.png">
+            <p>Settings</p>
+        </a>
+        <a class="settings_menu_item" href="#profile_settings">
+            <img alt="" src="/static/images/profile.png">
+            <p>Profile</p>
+        </a>
+        <a class="settings_menu_item" href="#preferences_settings">
+            <img alt="" src="/static/images/preferences.png">
+            <p>Preferences</p>
+        </a>
+        <a class="settings_menu_item" href="#security_settings">
+            <img alt="" src="/static/images/padlock2.png">
+            <p>Security</p>
+        </a>
+        <hr>
+        <a class="settings_menu_item" href="#" onclick="logOut()">
+            <img alt="" src="/static/images/logout.png">
+            <p>Log Out</p>
+        </a>
+    </section>
+
+    <section class="main_section">
+        <h1>Settings</h1>
+        <p>Manage your account and preferences</p>
+        <div class="settings_section" id="profile_settings">
+
+        </div>
+        <div class="settings_section" id="preferences_settings">
+
+        </div>
+        <div class="settings_section" id="security_settings">
+
+        </div>
+    </section>
+
+    <div class="logging_out_message hidden">
+            <p>Are you sure you want to log out?</p>
+        
+            <form method="POST" action="/logout">
+                <button type="submit" name="logout_answer" value="log_out">Yes</button>
+                <button type="submit" name="logout_answer" value="no_log_out" onclick="closeLogOutWindow()">No</button>
+            </form>
+    </div>
+{% endblock %}

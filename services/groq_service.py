@@ -77,8 +77,6 @@ def ai_chat():
 
         history = [dict(obj) for obj in c.execute("SELECT role, content FROM ai_conversations WHERE user_id = ?", (session["user_id"],)).fetchall()]
         
-        print(history)
-        
         response = client.chat.completions.create(
             model="openai/gpt-oss-20b",
             messages=history).choices[0].message.content

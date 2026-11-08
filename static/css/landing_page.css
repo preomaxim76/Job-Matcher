@@ -6,6 +6,8 @@ body {
 
 main{
     margin-left: 5%;
+    border-top: none;
+    background-color: white;
 }
 
 #line {

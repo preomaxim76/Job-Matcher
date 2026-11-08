@@ -1,15 +1,5 @@
 @import url(find_jobs_island.css);
 
-body {
-    margin: 0
-}
-
-main {
-    background-color: #EEF3FF;
-    margin-top: 1%;
-    border-top: 2px rgba(0, 0, 0, 0.191) solid;
-}
-
 #left_body {
     margin-left: 4%;
     width: 30%;
