@@ -15,6 +15,15 @@ main {
     padding-right: 1%
 }
 
+.settings_section {
+    border: solid transparent;
+    border-radius: 10px;
+    background-color: white;
+    padding: 1% 2%;
+    margin-bottom: 2.5%;
+    width: 1500px;
+}
+
 .settings_menu_item {
     text-decoration: none;
     color: black;
@@ -55,10 +64,99 @@ hr {
     font-size: 230%
 }
 
-.main_section p {
+#aftertitle_p {
     color: rgba(0, 0, 0, 0.6);
+    margin-top: -2%
+}
+
+.top_settings_section {
+    display: flex;
+    align-items: center;
+    gap: .5%
+}
+
+.text_settings_section {
+    display: flex;
+    flex-direction: column;
+}
+
+.text_settings_section p {
     margin-top: -10%
 }
+
+.top_settings_section img {
+    width: 3%;
+}
+
+/* Profile */
+#profile_settings {
+    display: flex;
+    flex-direction: column;
+}
+
+#profile_settings_change {
+    display: flex;
+    gap: 3%
+}
+
+#change_avatar {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+
+#change_avatar {
+    width: 160px;
+    margin-left: 5%
+}
+
+#default_avatar_image {
+    width: 100%
+}
+
+#profile_settings form {
+    display: flex;
+    justify-content: space-between;
+    border-left: solid 2px rgba(142, 140, 140, 0.374);
+    padding-left: 3%;
+    width: 100%
+}
+
+#profile_settings input {
+    width: 500px;
+    height: 35px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 120%;
+    padding-left: 2%;
+    margin-top: -2%;
+    margin-bottom: 2%
+}
+
+#profile_settings button {
+    height: 40px;
+    width: 160px;
+    border: solid transparent;
+    border-radius: 5px;
+    background-color: #4F63F7;
+    color: white;
+    font-size: 100%;
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+#profile_settings button:hover {
+    background-color: blue;
+}
+
+/* Preferences */
+
+/* Secutriy */
+
+/* */
+
+/* Logging out message*/
 
 .logging_out_message {
     position: absolute;

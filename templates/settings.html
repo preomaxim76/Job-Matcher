@@ -35,10 +35,39 @@
 
     <section class="main_section">
         <h1>Settings</h1>
-        <p>Manage your account and preferences</p>
+        <p id="aftertitle_p">Manage your account and preferences</p>
         <div class="settings_section" id="profile_settings">
+            <div class="top_settings_section">
+                <img src="/static/images/settings.png" alt="settings">
+                <div class="text_settings_section">
+                    <h2>Profile Information</h2>
+                    <p>Update your personal details</p>
+                </div>
+            </div>
 
+            <div id="profile_settings_change">
+                <div id="change_avatar">
+                    <img id="default_avatar_image" src="static/images/default_profile_avatar.png" alt="profile avatar">
+                    <div>
+                        <img>
+                        <p>Change Avatar</p>
+                    </div>
+                </div>
+
+                <form action="/" method="POST">
+                    <div>
+                        <h3>Username</h3>
+                        <input name="username" placeholder="Alex">
+
+                        <h3>Email Adress</h3>
+                        <input name="email" placeholder="example@gmail.com">
+                    </div>
+                    <button type="submit">Save changes</button>
+                </form>
+            </div>
         </div>
+
+
         <div class="settings_section" id="preferences_settings">
 
         </div>
