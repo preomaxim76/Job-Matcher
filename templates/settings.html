@@ -45,26 +45,25 @@
                 </div>
             </div>
 
-            <div id="profile_settings_change">
+            <form id="profile_settings_change" action="/change_profile_info" method="POST" enctype="multipart/form-data">
                 <div id="change_avatar">
                     <img id="default_avatar_image" src="static/images/default_profile_avatar.png" alt="profile avatar">
-                    <div>
-                        <img>
-                        <p>Change Avatar</p>
-                    </div>
+                        
+                    <label for="photo-upload"><img src="static/images/add-photo.png"><p>Change Avatar</p></label>
+                    <input name="avatar_photo" type="file" id="photo-upload" accept="image/*" hidden>
                 </div>
 
-                <form action="/" method="POST">
+                <div id="change_username_email" action="/" method="POST">
                     <div>
                         <h3>Username</h3>
-                        <input name="username" placeholder="Alex">
+                        <input name="username" placeholder="Alex" autocomplete="off">
 
                         <h3>Email Adress</h3>
-                        <input name="email" placeholder="example@gmail.com">
+                        <input name="email" placeholder="example@gmail.com" autocomplete="off">
                     </div>
                     <button type="submit">Save changes</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
 
 

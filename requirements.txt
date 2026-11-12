@@ -3,7 +3,8 @@ jinja2
 Authlib
 bcrypt
 python-dotenv
-resend
+brevo-python
 itsdangerous
 sqlite3
 groq
+requests

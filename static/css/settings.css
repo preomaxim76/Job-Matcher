@@ -111,11 +111,42 @@ hr {
     margin-left: 5%
 }
 
+#change_avatar label img {
+    width: 15%
+}
+
+#change_avatar label {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    border: solid grey 2px;
+    border-radius: 10px;
+    width: 110%;
+    height: 15%;
+    margin-top: 10%;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-left: -10%;
+}
+
+#change_avatar label:hover {
+    background-color: rgb(214, 214, 214);
+}
+
+#change_avatar label:active {
+    transform: scale(.9);
+}
+
+#change_avatar label {
+    font-size: 115%;
+    color: #4F63F7
+}
+
 #default_avatar_image {
     width: 100%
 }
 
-#profile_settings form {
+#change_username_email {
     display: flex;
     justify-content: space-between;
     border-left: solid 2px rgba(142, 140, 140, 0.374);
@@ -138,7 +169,7 @@ hr {
     height: 40px;
     width: 160px;
     border: solid transparent;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #4F63F7;
     color: white;
     font-size: 100%;

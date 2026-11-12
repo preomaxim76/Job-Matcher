@@ -94,13 +94,13 @@ nav {
 }
 
 #right-username p {
-    font-size: 120%
+    font-size: 120%;
 }
 
 #right-username img {
-    max-width: 110%;
+    max-width: 65px;
     height: auto;
-    margin-right: 20%
+    margin-right: 10%
 }
 
 .settings_link_username {

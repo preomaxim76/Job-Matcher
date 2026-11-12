@@ -6,15 +6,18 @@ from extensions import oauth
 from database.db import connect_database # Connect database
 from datetime import datetime
 import bcrypt
-import resend
-from itsdangerous import URLSafeTimedSerializer
+#import resend
+from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
+import requests
 
 auth = Blueprint("auth", __name__)
+auth.secret_key = os.environ["SESSION_KEY"]
 
 load_dotenv()
 
-# To use resend (sending verification emails)
-resend.api_key = os.environ["RESEND_API_KEY"]
+serializer = URLSafeTimedSerializer(
+    auth.secret_key
+)
 
 # Adding google as oath provider
 google = oauth.register(
@@ -27,12 +30,31 @@ google = oauth.register(
     }
 )
 
-auth.secret_key = os.environ["SESSION_KEY"]
-        
-# Creating an object that creates urls
-serializer = URLSafeTimedSerializer(
-    auth.secret_key
-)
+ 
+def send_verification_email(user_email, ver_link):
+    url = "https://api.brevo.com/v3/smtp/email"
+    headers = {
+        "accept": "application/json",
+        "api-key": os.environ["BREVO_API_KEY"],
+        "content-type": "application/json"
+    }
+
+    payload = {
+        "sender": {
+            "name": "Job Matcher",
+            "email": "preomaxim76@gmail.com"
+        },
+        "to": [
+            {"email": user_email}
+        ],
+        "subject": "Verify your email for Job Matcher",
+        "htmlContent": f'<p>Click <a href="{ver_link}">here</a> to verify your email.</p>'
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+    print("Status Code:", response.status_code)
+    print("Brevo Response:", response.text)
+    return response.status_code == 201
 
 def password_is_valid(password, confirmation):
     if len(password) < 6:
@@ -85,6 +107,8 @@ def login():
             
             # Adding user_id to session
             session["user_id"] = c.execute("SELECT user_id FROM users WHERE email = ?", (email, )).fetchone()[0]
+            session["username"] = c.execute("SELECT username FROM users WHERE email = ?", (email, )).fetchone()[0]
+            
             conn.close()
 
             return redirect("/")
@@ -191,22 +215,17 @@ def register():
         session["user_id"] = c.execute("SELECT user_id FROM users WHERE email = ?", (email, )).fetchone()[0]
         conn.close()
 
+        session["username"] = username
+        
+
         # After saving check wether email is valid (then we'll delete it if not)
         token = serializer.dumps(email, salt="email_verification")
         
         # Verification url with the whole route (.../verify_email/...)
-        verification_url = url_for("verify_email_registration", token=token, _external=True)
+        verification_url = url_for("auth.verify_email_registration", token=token, _external=True)
 
-        r = resend.Emails.send({
-            "from": "Job Matcher <onboarding@resend.dev>",
-            "to": email,
-            "subject": "Verify your email.",
-            "html": f"""
-                <h1>Hello from Job Matcher!</h1>
-                <p>Follow this link to verify your email</p>
-                <a href="{verification_url}">Verify Email</a>"""
-            })
-
+        r = send_verification_email(email, verification_url)
+        
         print(r)
 
         flash("Verification link sent. Check your inbox.", "success")
@@ -230,9 +249,26 @@ def verify_email_registration(token):
         flash("You have successfully registered!", "success")
 
         return redirect("/")
+    except SignatureExpired:
+        flash("Link has expired!", "error")
 
-    except:
-        flash("Invalid or expired link", "error")
+        # Remove user from the table
+        conn = connect_database("users.db")
+        c = conn.cursor()
+        try:
+            c.execute("DELETE FROM users WHERE user_id = ?", (session["user_id"], ))
+        except:
+            pass
+
+        conn.commit()
+        conn.close()
+
+        session.clear()
+
+        return redirect("/register")
+
+    except BadSignature:
+        flash("Invalid link", "error")
 
         # Remove user from the table
         conn = connect_database("users.db")
@@ -246,7 +282,7 @@ def verify_email_registration(token):
 
         session.clear()
 
-        flash("Link expired or invalid.", "error")
+        flash("Link is invalid.", "error")
 
         return redirect("/register")
 
@@ -271,19 +307,9 @@ def forgot_password():
         token = serializer.dumps(email, salt="reset-password")
 
         # Verification link that we'll put in an email
-        verification_link = url_for("verify_email_password", token=token, _external=True)
+        verification_link = url_for("auth.verify_email_password", token=token, _external=True)
 
-        r = resend.Emails.send(
-            {
-                "from": "Job Matcher <onboarding@resend.dev>",
-                "to": email, 
-                "subject": "Reset password",
-                "html": f"""
-                    <h1>Hello from Job Matcher!</h1>
-                    <p>This is an email to reset your password. If it weren't you, who wanted to do that, please ignore this email.</p>
-                    <p>If it was you, please follow this link: <a href="{verification_link}">Reset Password</a></p>"""
-            }
-        )
+        r = send_verification_email(email, verification_link)
 
         print(r)
 

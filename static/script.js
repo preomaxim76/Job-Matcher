@@ -183,3 +183,7 @@ function closeLogOutWindow()
     document.querySelector(".logging_out_message").classList.add("hidden");
 }
 
+function addPhoto() 
+{
+    console.log("Pressed")
+}
